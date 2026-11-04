@@ -1,7 +1,7 @@
 package saaqclic;
 
 /** Mission 5 : immatriculation d'un véhicule. Tarif fictif. */
-public class Immatriculation /* TODO Mission 5 : héritez de Transaction */ {
+public class Immatriculation extends Transaction/* TODO Mission 5 : héritez de Transaction */ {
 
     public static final double TARIF = 120.0;
 
@@ -9,8 +9,19 @@ public class Immatriculation /* TODO Mission 5 : héritez de Transaction */ {
 
     public Immatriculation(String reference, String plaque) {
         // TODO Mission 5 : transmettez reference au parent et gardez plaque.
+        super(reference);
+        this.plaque = plaque;
     }
 
     // TODO Mission 5 : redéfinissez montant().
+    @Override
+    public double montant() {
+        return TARIF;
+
+    }
     // TODO Mission 5 : redéfinissez description(). Exemple : Immatriculation ABC 123
+    @Override 
+    public String description() {
+        return "Immatriculation " + this.plaque;
+    }
 }
