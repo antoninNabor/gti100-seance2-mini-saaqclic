@@ -12,13 +12,16 @@ public class Permis {
     public Permis(String numero, String titulaire, int points) {
         // Mission 2 : ce constructeur contient un bogue. Les tests vous aideront à le trouver.
         // Il doit aussi ramener à 0 un nombre de points négatif.
-        numero = numero;
-        titulaire = titulaire;
-        points = points;
+        this.numero = numero;
+        this.titulaire = titulaire;
+        if (points < 0) {points = 0;}
+        this.points = points;
+        
     }
 
     public Permis(String numero, String titulaire) {
         // TODO Mission 2 : appelez l'autre constructeur avec 0 point.
+        this(numero,titulaire, 0);
     }
 
     public static int nombreEmis() {
@@ -27,25 +30,29 @@ public class Permis {
     }
 
     public String getNumero() {
-        throw new UnsupportedOperationException("TODO Mission 2 : getNumero");
+        return this.numero;
     }
 
     public String getTitulaire() {
-        throw new UnsupportedOperationException("TODO Mission 2 : getTitulaire");
+        return this.titulaire;
     }
 
     public int getPoints() {
-        throw new UnsupportedOperationException("TODO Mission 2 : getPoints");
+        return this.points;
     }
 
     public void ajouterPoints(int nombre) {
         // TODO Mission 2 : ajoutez nombre aux points, seulement si nombre est positif.
-        throw new UnsupportedOperationException("TODO Mission 2 : ajouterPoints");
+        if (nombre >=0 ) {
+            points = getPoints() + nombre;
+        }
+        
     }
 
     public boolean estSuspendu() {
         // TODO Mission 2 : suspendu dès que les points atteignent limitePoints().
-        throw new UnsupportedOperationException("TODO Mission 2 : estSuspendu");
+        if (getPoints() >= limitePoints()) {return true;}
+        return false;
     }
 
     /** Seuil de points d'inaptitude de ce permis. */
