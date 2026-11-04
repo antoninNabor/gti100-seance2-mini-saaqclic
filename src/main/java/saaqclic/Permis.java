@@ -8,6 +8,7 @@ public class Permis {
     private String numero;
     private String titulaire;
     private int points;
+    private static int nbPermis = 0;
 
     public Permis(String numero, String titulaire, int points) {
         // Mission 2 : ce constructeur contient un bogue. Les tests vous aideront à le trouver.
@@ -16,6 +17,7 @@ public class Permis {
         this.titulaire = titulaire;
         if (points < 0) {points = 0;}
         this.points = points;
+        nbPermis++;
         
     }
 
@@ -26,7 +28,7 @@ public class Permis {
 
     public static int nombreEmis() {
         // TODO Mission 3 : retournez le nombre de permis créés depuis le début du programme.
-        throw new UnsupportedOperationException("TODO Mission 3 : nombreEmis");
+        return nbPermis;
     }
 
     public String getNumero() {
@@ -40,6 +42,12 @@ public class Permis {
     public int getPoints() {
         return this.points;
     }
+
+    public void setTitulaire(String nvTitulaire) {
+        titulaire = nvTitulaire;
+
+    }
+    
 
     public void ajouterPoints(int nombre) {
         // TODO Mission 2 : ajoutez nombre aux points, seulement si nombre est positif.
